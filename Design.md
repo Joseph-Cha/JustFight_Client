@@ -66,7 +66,25 @@ Just Fight 세계에 오신 "아무개"님 환영합니다.
 - Ready.. Fight!
 
 **유저 인터페이스  시나리오**
-![link](https://github.com/Joseph-Cha/JustFight_Client/blob/Design/Design/scenario.gif)
+
+<img src="https://user-images.githubusercontent.com/75019048/107335959-e8ccbf00-6afb-11eb-888a-6d4b3014b1ff.gif" width="500" height="380">
+
+- Scene design
+    - 입장
+        1. 안내 메시지가 끝난 후 화면을 터치하면 다음 장면으로 전환
+    - 시작 마을
+        1. 좌측 하단 조작 패드를 통해 상하좌우 이동
+        2. 우측 하단 Sword와 Bow 선택 시 각각 칼과 활로 무기 변경
+        3. 우측 하단 Attack 버튼 클릭 시 선택된 무기로 공격
+        4. 마을에 있는 NPC 근처로 이동 후 Attack 버튼을 클릭하면 대화 창 오픈(아이템 교환 및 도움말)
+        5. 원하는 메뉴를 클릭 시 해당 메뉴로 이동
+    - 사냥터
+        1. 시작 마을 아래로 이동하면 곧 바로 몹들이 있음
+        2. 무기가 칼일 경우 바로 옆에서 공격해야 대미지 전달
+        3. 무기가 활일 경우 직선 거리에서 최대 3칸 거리에서 대미지 전달
+    - PVP
+        1. 10분 뒤 자동으로 PVP 맵으로 이동
+        2. 3분 동안 서로 자유롭게 공격 
 
 ## 구현 범위
 
