@@ -9,6 +9,5 @@
 설계서도 markdown format으로 작성후 pull request를 통해 리뷰를 한다.
 
 ## 기술 스택 및 개발 환경
-C#, Unity, SP.NET Core Blazor, RDBMS, .NET ORM
-
-VSCode 
+C#, Unity, ASP.NET Core Blazor, RDBMS, .NET ORM
+Visual Studio Code
