@@ -66,7 +66,6 @@ Just Fight 세계에 오신 "아무개"님 환영합니다.
 - Ready.. Fight!
 
 **유저 인터페이스  시나리오**
-
 <img src="https://user-images.githubusercontent.com/75019048/107335959-e8ccbf00-6afb-11eb-888a-6d4b3014b1ff.gif" width="500" height="380">
 
 - Scene design
@@ -150,3 +149,4 @@ Just Fight 세계에 오신 "아무개"님 환영합니다.
 2. 단, 서로가 사냥 중인 몹을 스틸할 수 있다.
 3. 그리고 몹이 떨어뜨린 아이템도 스틸할 수 있다.
 4. 아이템은 오직 몹을 통해서만 확보가 가능하다.
+5. 활은 총 30발만 사용할 수 있다.(PVP 포함)
