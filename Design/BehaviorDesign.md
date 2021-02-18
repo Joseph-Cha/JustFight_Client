@@ -24,6 +24,9 @@
     - (UI)"Touch To Start"를 터치하면 메인 씬으로 화면 전환 
     - 화면 전환할 때 Fade In & Out
 
+2. 제한 시간(10분) 카운트 다운 시작
+    - 게임 시작과 동시에 화면 상단 중앙에서 (UI)"10 : 00"가 1초씩 감소
+
 ### 기능별 설계
 1. 앱 실행 후 인게임에 들어가기 전까지
     - Scene 
@@ -37,3 +40,11 @@
     - Animation
         - Touch To Start : Alpha Value 0 ~ 1 
         - Fade in & out : Alpha value 0 ~ 1
+2. 제한 시간(10분) 카운트 다운 시작
+    - Scene
+        - name : Main
+    - UI
+        - RemainingTime : Text
+    - class
+        - GameManager
+            - -CountDown() : void
