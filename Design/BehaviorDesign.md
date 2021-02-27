@@ -17,23 +17,17 @@
 - GM : 제한 시간(10분) 끝나면 PVP 맵으로 이동
 - GM : 승리 조건
 
-### 기능별 요구사항 리스트
+### 기능별 요구사항 리스트 및 설계 
+- Legend
+    - block : object
+    - italic : message
 1. 앱 실행 후 인게임에 들어가기 전까지
-    - 앱 실행 시 타이틀 화면 등장
-    - 타이틀 아래에서 (UI)"Touch To Start"가 깜빡 거림
-    - (UI)"Touch To Start"를 터치하면 메인 씬으로 화면 전환 
-    - 화면 전환할 때 Fade In & Out
-
-### 기능별 설계
-1. 앱 실행 후 인게임에 들어가기 전까지
-    - Scene 
-        - name : TitleScene
-    - UI
-        - Title : TextMeshPro
-        - Touch To Start : Button
-    - Class 
-        - SceneLoader
-            - -OnStart() : void
-    - Animation
-        - Touch To Start : Alpha Value 0 ~ 1 
-        - Fade in & out : Alpha value 0 ~ 1
+    1. (UI)"Touch To Start"를 터치하면 메인 씬으로 화면 전환
+        - `유저` ⇒ `Button` : *화면 터치*
+        - `Button` ⇒ `SceneLoader` : *OnClick() : void*
+        - `SceneLoader` ⇒ `SceneLoader` : *OnStart() : void*
+    2. 타이틀 아래에서 (UI)"Touch To Start"가 깜빡 거림
+        - `Animator` ⇒ `Touch To Start(UI)` : *Play() : void*
+    3. 화면 전환할 때 Fade In & Out
+        - `SceneLoader` ⇒ `Animator` : *SetTrigger(string) : void*
+        - `Animator` ⇒ `BlackView(UI)` : *Play() : void*
