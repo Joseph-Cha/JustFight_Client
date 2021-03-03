@@ -31,7 +31,6 @@
     3. 화면 전환할 때 Fade In & Out
         - `SceneLoader` ⇒ `Animator` : *SetTrigger(string) : void*
         - `Animator` ⇒ `BlackView(UI)` : *Play() : void*
-
 2. 제한 시간(10분) 카운트 다운 시작
     1. 게임 시작과 동시에 화면 상단 중앙에서 "10 : 00(UI)"가 1초씩 감소
         - `GameManager` ⇒ `GameManager` : *Start() : void*

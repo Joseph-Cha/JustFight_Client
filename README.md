@@ -3,8 +3,8 @@
 ## 프로젝트 기획서
 [기획서](https://github.com/Joseph-Cha/JustFight_Client/blob/Design/Design/Design.md)
 ## 설계서
-[클래스 다이어그램](https://github.com/Joseph-Cha/JustFight_Client/blob/Design/Design/StructureDiagram.md) : UML 기반 \
-[행위 다이어그램](https://github.com/Joseph-Cha/JustFight_Client/blob/Design/Design/BehaviorDiagram.md) : 기능들의 작동 절차 단순 나열
+[클래스 다이어그램](https://github.com/Joseph-Cha/JustFight_Client/blob/main/Design/ClassDiagram.md)\
+[행위 다이어그램](https://github.com/Joseph-Cha/JustFight_Client/blob/main/Design/BehaviorDiagram.md)
 ## 기술 스택 및 개발 환경
 C#, Unity, ASP.NET Core Blazor, RDBMS, .NET ORM\
 Visual Studio Code
