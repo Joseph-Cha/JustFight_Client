@@ -1,7 +1,7 @@
 ## 프로젝트 주제
 2명에서 즐기는 2D 배틀로얄 게임입니다.
 ## 프로젝트 기획서
-[기획서](https://github.com/Joseph-Cha/JustFight_Client/blob/Design/Design/Design.md)
+[기획서](https://github.com/Joseph-Cha/JustFight_Client/blob/main/Design/Design.md)
 ## 설계서
 [클래스 다이어그램](https://github.com/Joseph-Cha/JustFight_Client/blob/main/Design/ClassDiagram.md)\
 [행위 다이어그램](https://github.com/Joseph-Cha/JustFight_Client/blob/main/Design/BehaviorDesign.md)
