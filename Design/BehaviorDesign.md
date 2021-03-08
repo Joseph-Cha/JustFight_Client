@@ -22,14 +22,15 @@
     - block : object
     - italic : message
 1. 앱 실행 후 인게임에 들어가기 전까지
-    1. (UI)"Touch To Start"를 터치하면 메인 씬으로 화면 전환
+    1. 타이틀 아래에서 (UI)"Touch To Start"가 깜빡 거림
+        - `Animator` ⇒ `Touch To Start(UI)` : *Play() : void*
+    2. (UI)"Touch To Start"를 터치하면 3초 후 메인 씬으로 화면 전환
         - `유저` ⇒ `Button` : *화면 터치*
         - `Button` ⇒ `SceneLoader` : *OnClick() : void*
-        - `SceneLoader` ⇒ `SceneLoader` : *OnStart() : void*
-    2. 타이틀 아래에서 (UI)"Touch To Start"가 깜빡 거림
-        - `Animator` ⇒ `Touch To Start(UI)` : *Play() : void*
-    3. 화면 전환할 때 Fade In & Out
-        - `SceneLoader` ⇒ `Animator` : *SetTrigger(string) : void*
+        - `SceneLoader` ⇒ `SceneLoader` : *OnPlayGame() : void*   
+        - `SceneLoader` => `SceneManager` : *LoadScene() : void* 
+    3. 화면 전환할 때 3초 동안 Fade out
+        - `SceneLoader` ⇒ `Animator` : *Fadeout() : IEnumerator*
         - `Animator` ⇒ `BlackView(UI)` : *Play() : void*
 2. 제한 시간(10분) 카운트 다운 시작
     1. 게임 시작과 동시에 화면 상단 중앙에서 "10 : 00(UI)"가 1초씩 감소
