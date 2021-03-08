@@ -12,14 +12,18 @@ public class SceneLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartButton.onClick.AddListener(delegate {OnStart();});
+        StartButton.onClick.AddListener(delegate {OnPlayGame();});
     }
     
-    void OnStart()
+    void OnPlayGame()
     {
         Animator.SetTrigger("Start");
-        SceneManager.LoadScene("Main");
+        StartCoroutine(LoadScene());
     }
 
-
+    IEnumerator LoadScene()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Main");
+    }
 }
