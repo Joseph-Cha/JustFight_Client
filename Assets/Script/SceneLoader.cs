@@ -18,7 +18,7 @@ public float loadingTime = 3.0f;
     void OnPlayGame()
     {
         Animator.SetTrigger("Start");
-        StartCoroutine(LoadScene());
+        StartCoroutine(LoadScene(loadingTime));
     }
 
     private IEnumerator LoadScene(float seconds)
