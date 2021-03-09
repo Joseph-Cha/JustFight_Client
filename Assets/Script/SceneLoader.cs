@@ -21,9 +21,9 @@ public float loadingTime = 3.0f;
         StartCoroutine(LoadScene());
     }
 
-    IEnumerator LoadScene()
+    private IEnumerator LoadScene(float seconds)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(seconds);
         SceneManager.LoadScene("Main");
     }
 }
