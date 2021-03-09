@@ -8,7 +8,7 @@ public class SceneLoader : MonoBehaviour
 {
     public Button StartButton;
     public Animator Animator;
-
+public float loadingTime = 3.0f;
     // Start is called before the first frame update
     void Start()
     {
