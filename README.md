@@ -1,3 +1,5 @@
+[![Actions 😎](https://github.com/Joseph-Cha/JustFight_Client/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/Joseph-Cha/JustFight_Client/actions/workflows/main.yml)
+
 ## 프로젝트 주제
 2명에서 즐기는 2D 배틀로얄 게임입니다.
 ## 프로젝트 기획서
