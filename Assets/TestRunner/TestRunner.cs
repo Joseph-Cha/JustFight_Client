@@ -21,12 +21,23 @@ namespace Tests
         [UnityTest]
         public IEnumerator TestRunWithEnumeratorPasses()
         {
+            // Arrange
             var obj = new GameObject();
-            obj.AddComponent<SceneLoader>();            
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
+            Button startButton = obj.AddComponent<Button>();
+            SceneLoader sceneLoader = obj.AddComponent<SceneLoader>();
+            startButton.onClick.AddListener(sceneLoader.PlayGame);
+            
             yield return null;
-            Assert.IsNotNull(obj);
+            
+            // act
+            startButton.onClick.Invoke();
+            
+            yield return new WaitForSeconds(3.5f);
+            
+            Scene scene = SceneManager.GetActiveScene();
+            
+            // asssrt
+            Assert.AreEqual(scene.name, "Main");
         }
     }
 }
