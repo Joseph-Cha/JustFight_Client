@@ -4,26 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class SceneLoader : MonoBehaviour
-{
-    public Button StartButton;
+{   
     public Animator Animator;
-public float loadingTime = 3.0f;
-    // Start is called before the first frame update
-    void Start()
+    private float _loadingTime = 3.0f;
+    private string _mainSceneName = "Main";
+    public void OnPlayGame()
     {
-        StartButton.onClick.AddListener(delegate {OnPlayGame();});
-    }
-    
-    void OnPlayGame()
-    {
-        Animator.SetTrigger("Start");
-        StartCoroutine(LoadScene(loadingTime));
+        Debug.Log("On Play Button");
+        Animator?.SetTrigger("Start");
+        StartCoroutine(LoadScene(_loadingTime));
     }
 
     private IEnumerator LoadScene(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene(_mainSceneName);
     }
 }
