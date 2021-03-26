@@ -9,10 +9,6 @@ public class GameManager : MonoBehaviour
     public Text PlayTime;
     private TimeSpan startTime = new TimeSpan(0, 10, 00);
 
-    private void Awake()
-    {
-
-    }
 
     private void Start()
     {
