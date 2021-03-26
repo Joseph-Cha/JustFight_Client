@@ -20,6 +20,6 @@ public class GameManager : MonoBehaviour
     private void CountDown()
     {
         remainingTime = startTime - TimeSpan.FromSeconds(1);
-        PlayTime.text = $"{startTime.Minutes.ToString()} : {startTime.Seconds.ToString()}";
+        PlayTime.text = remainingTime.ToString(@"mm\:ss")
     }
 }
