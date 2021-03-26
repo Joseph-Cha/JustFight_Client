@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     private void CountDown()
     {
-        startTime = startTime.Subtract(new TimeSpan(0, 0, 1));
+        remainingTime = startTime - TimeSpan.FromSeconds(1);
         PlayTime.text = $"{startTime.Minutes.ToString()} : {startTime.Seconds.ToString()}";
     }
 }
