@@ -2,42 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class GameManager : MonoBehaviour
 {
     public Text PlayTime;
-
-    private float playingTime = 600f;
-    private int remainMinute;
-    private int remainSeconds;
-
+    private TimeSpan startTime = new TimeSpan(0, 10, 00);
 
     private void Awake()
     {
-        remainMinute = (int)(playingTime / 60);
-        remainSeconds = (int)(playingTime % 60);
+
     }
 
     private void Start()
     {
-        PlayTime.text = $"{remainMinute} : {remainSeconds}";
+        InvokeRepeating("CountDown", 0, 1);
     }
 
-    private void Update()
-    {
-        CountDown();
-    }
+
 
     private void CountDown()
     {
-        playingTime -= Time.deltaTime;
-        remainMinute = (int)(playingTime / 60);
-        remainSeconds = (int)(playingTime % 60);
-
-
-        PlayTime.text = $"{remainMinute} : {remainSeconds}";
+        startTime = startTime.Subtract(new TimeSpan(0, 0, 1));
+        PlayTime.text = $"{startTime.Minutes.ToString()} : {startTime.Seconds.ToString()}";
     }
-
-    
-
 }
