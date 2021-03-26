@@ -7,7 +7,7 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public Text PlayTime;
-    private TimeSpan startTime = new TimeSpan(0, 10, 00);
+    private TimeSpan startTime = new TimeSpan(0, 10, 0);
 
 
     private void Start()
