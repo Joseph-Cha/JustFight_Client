@@ -9,8 +9,9 @@ using System;
 
 namespace Tests
 {
-    public class TestRunner
+    public class TestRunner_PlayMode
     {
+
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
         [UnityTest]
@@ -34,7 +35,30 @@ namespace Tests
             Scene scene = SceneManager.GetActiveScene();
 
             // asssrt
-            Assert.AreEqual(scene.name, "");
+            Assert.AreEqual(scene.name, "Main");
         }
+
+        public IEnumerator TestRunner_PlayModeWithEnumeratorPasses()
+        {
+            // Arrange
+            var obj = new GameObject();
+            GameManager gm = obj.AddComponent<GameManager>();
+            TimeSpan ts = new TimeSpan(0, 9, 50);
+
+            yield return null;
+
+            // act 
+            // 
+            DateTime startTime = DateTime.UtcNow;
+            do
+            {
+                yield return null;
+            } while  ((DateTime.UtcNow - startTime).TotalSeconds < 10.0);
+
+            Debug.Log(gm.remainingTime);
+            // assert
+            Assert.AreEqual(gm.remainingTime, ts);
+        }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,20 +6,20 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    public Text PlayTime;
+    [SerializeField]
+    private Text PlayTime;
+    
     private TimeSpan startTime = new TimeSpan(0, 10, 0);
-private TimeSpan remainingTime;
-
-    private void Start()
+    public TimeSpan remainingTime { get; set; }
+    
+    private void OnEnable()
     {
         InvokeRepeating("CountDown", 0, 1);
     }
-
-
-
     private void CountDown()
     {
-        remainingTime = startTime - TimeSpan.FromSeconds(1);
-        PlayTime.text = remainingTime.ToString(@"mm\:ss")
+        startTime -= TimeSpan.FromSeconds(1);
+        remainingTime = startTime;
+        PlayTime.text = remainingTime.ToString(@"mm\:ss");
     }
 }
