@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     
     private void OnEnable()
     {
+        remainingTime = startTime;
         InvokeRepeating("CountDown", 0, 1);
     }
     private void CountDown()
