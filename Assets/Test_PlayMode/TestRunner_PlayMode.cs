@@ -49,11 +49,12 @@ namespace Tests
 
             // act 
             // 
-            DateTime startTime = DateTime.UtcNow;
+            float waitTime = 0.0f;
             do
             {
                 yield return null;
-            } while  ((DateTime.UtcNow - startTime).TotalSeconds < 10.0);
+                waitTime += Time.deltaTime;
+            } while (waitTime < 10.0f);
 
             Debug.Log(gm.remainingTime);
             // assert
