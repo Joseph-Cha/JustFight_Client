@@ -19,8 +19,7 @@ public class GameManager : MonoBehaviour
     }
     private void CountDown()
     {
-        startTime -= TimeSpan.FromSeconds(1);
-        remainingTime = startTime;
+        remainingTime -= TimeSpan.FromSeconds(1);
         PlayTime.text = remainingTime.ToString(@"mm\:ss");
     }
 }
