@@ -36,3 +36,23 @@
     1. 게임 시작과 동시에 화면 상단 중앙에서 "10 : 00(UI)"가 1초씩 감소
         - `GameManager` ⇒ `GameManager` : *Start() : void*
         - `GameManager` ⇒ `RemainingTime(UI)` : *CountDown() : void*
+3. 플레이어 생성
+   1. 게임 시작 전 플레이어 이름 입력
+      - `유저` ⇒ `InputField` : *입력*
+   2. 입력한 플레이어 이름을 머리 위에 띄우며 플레이어 생성
+      - `InputField` ⇒ `GameManager` : *SetPlayerName*   // InputField에 입력한 이름 데이터를 가지고 옴
+      - `Player` ⇒ `GameManager` : *CreatePlayer*        // Player(Prefab) 생성, GameManager에 있는 PlayerName을 Player 객체에 전달
+      - `Player` ⇒ `Player` : *InitPlayerSetting*        // GameManager에 있는 PlayerName으로 PlayerName으로 할당
+
+## 메모장
+### A => B의 의미
+A : 피객체(객체가 원하는 데이터를 가지고 있음)
+B : 피객체의 데이터를 가지고 작업하는 객체
+=> : B에서 작성된 메서드이고 B가 A를 참조한다.
+
+### 플레이어 초기 셋팅
+이름 정보 이외에 데이터(GameManager가 가지고 있는 값)들을 토대로 생성하기를 원함
+
+### 데이터 관리
+데이터를 저장하고 와서 데이터를 가지고 다양한 처리를 담당하는 매니저 => `GameManager`
+플레이어의 속성 값과 속성 값을 가지고 실제 행동을 담당하는 클래스 => `Player`

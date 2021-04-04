@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private Text PlayTime;
     
     private TimeSpan startTime = new TimeSpan(0, 10, 0);
+
     public TimeSpan remainingTime { get; set; }
     
     private void OnEnable()
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
         remainingTime = startTime;
         InvokeRepeating("CountDown", 0, 1);
     }
+    
     private void CountDown()
     {
         remainingTime -= TimeSpan.FromSeconds(1);
