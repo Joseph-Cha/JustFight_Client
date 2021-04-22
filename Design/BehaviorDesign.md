@@ -37,12 +37,13 @@
         - `GameManager` ⇒ `GameManager` : *Start() : void*
         - `GameManager` ⇒ `RemainingTime(UI)` : *CountDown() : void*
 3. 플레이어 생성
-   1. 게임 시작 전 플레이어 이름 입력
-      - `유저` ⇒ `InputField` : *입력*
+   1. 게임 시작 전 플레이어 이름 입력 
+      - `유저` ⇒ `InputField` : *입력*                     // InputField에 캐릭터 이름 입력
+      - `InputField` ⇒ `StartData` : *SavePlayerData*      // InputField의 text 값을 PlayerPrefs에 저장
    2. 입력한 플레이어 이름을 머리 위에 띄우며 플레이어 생성
-      - `InputField` ⇒ `GameManager` : *SetPlayerName*   // InputField에 입력한 이름 데이터를 가지고 옴
-      - `Player` ⇒ `GameManager` : *CreatePlayer*        // Player(Prefab) 생성, GameManager에 있는 PlayerName을 Player 객체에 전달
-      - `Player` ⇒ `Player` : *InitPlayerSetting*        // GameManager에 있는 PlayerName으로 PlayerName으로 할당
+      - `GameManager` ⇒ `Player` : *CreatePlayer*         // 본 게임 시작되면 Player를 생성
+      - `Player` ⇒ `PlayerPrefs` : *GetPlayerData*        // 인트로씬에서 저장한 Player의 데이터를 가지고 옴
+      - `Player` ⇒ `Player` : *InitPlayerSetting*         // Player가 생성될 때 데이터 초기화
 
 ## 메모장
 ### A => B의 의미
