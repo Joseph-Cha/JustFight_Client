@@ -4,10 +4,7 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance
-    {
-        get => instance ?? FindObjectOfType<GameManager>();
-    }
+    public static GameManager Instance => instance ??= FindObjectOfType<GameManager>();
     private static GameManager instance;
     public GameObject Player;
     public Text PlayTime;
