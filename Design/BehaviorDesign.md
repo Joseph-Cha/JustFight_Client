@@ -44,7 +44,6 @@
       - `Player` ⇒ `GameManager` : *CreatePlayer*        // Player(Prefab) 생성
       - `Player` ⇒ `Player` : *GetPlayerData*            // PlayerPrefs에 저장된 Name 값을 Player의 Name 값에 할당
       - `Player` ⇒ `PlayerUI` : *InitPlayerUI()*         // Player의 Name 값으로 TMP text 값 초기화
-
 ## 메모장
 ### A => B의 의미
 A : 피객체(객체가 원하는 데이터를 가지고 있음)
