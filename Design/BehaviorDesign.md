@@ -37,14 +37,13 @@
         - `GameManager` ⇒ `GameManager` : *Start() : void*
         - `GameManager` ⇒ `RemainingTime(UI)` : *CountDown() : void*
 3. 플레이어 생성
-   1. 게임 시작 전 플레이어 이름 입력 
-      - `유저` ⇒ `InputField` : *입력*                     // InputField에 캐릭터 이름 입력
-      - `InputField` ⇒ `StartData` : *SavePlayerData*      // InputField의 text 값을 PlayerPrefs에 저장
+   1. 게임 시작 전 플레이어 이름 입력
+      - `유저` ⇒ `InputField` : *입력*
+      - `InputField` ⇒ `StartData` : *SavePlayerData*    // InputField에 입력한 이름 데이터를 PlayerPrefs에 저장
    2. 입력한 플레이어 이름을 머리 위에 띄우며 플레이어 생성
-      - `GameManager` ⇒ `Player` : *CreatePlayer*         // 본 게임 시작되면 Player를 생성
-      - `Player` ⇒ `PlayerPrefs` : *GetPlayerData*        // 인트로씬에서 저장한 Player의 데이터를 가지고 옴
-      - `Player` ⇒ `Player` : *InitPlayerSetting*         // Player가 생성될 때 데이터 초기화
-
+      - `Player` ⇒ `GameManager` : *CreatePlayer*        // Player(Prefab) 생성
+      - `Player` ⇒ `Player` : *GetPlayerData*            // PlayerPrefs에 저장된 Name 값을 Player의 Name 값에 할당
+      - `Player` ⇒ `PlayerUI` : *InitPlayerUI()*         // Player의 Name 값으로 TMP text 값 초기화
 ## 메모장
 ### A => B의 의미
 A : 피객체(객체가 원하는 데이터를 가지고 있음)

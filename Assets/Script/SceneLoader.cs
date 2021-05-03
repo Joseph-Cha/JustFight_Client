@@ -8,18 +8,18 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {   
     public Animator Animator;
-    private float _loadingTime = 3.0f;
-    private string _mainSceneName = "Main";
+    private float loadingTime = 3.0f;
+    private string mainSceneName = "Main";
     public void OnPlayGame()
     {
         Debug.Log("On Play Button");
         Animator?.SetTrigger("Start");
-        StartCoroutine(LoadScene(_loadingTime));
+        StartCoroutine(LoadScene(loadingTime));
     }
 
     private IEnumerator LoadScene(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        SceneManager.LoadScene(_mainSceneName);
+        SceneManager.LoadScene(mainSceneName);
     }
 }
