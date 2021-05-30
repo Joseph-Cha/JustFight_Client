@@ -41,16 +41,23 @@
 3. 플레이어 생성
    1. 게임 시작 전 플레이어 이름 입력
       - `유저` ⇒ `InputField` : *입력*
-      - `InputField` ⇒ `StartData` : *SavePlayerData*               // InputField에 입력한 이름 데이터를 PlayerPrefs에 저장
+      - `InputField` ⇒ `StartData` : *SavePlayerData*               
+        - InputField에 입력한 이름 데이터를 PlayerPrefs에 저장
    2. 입력한 플레이어 이름을 머리 위에 띄우며 플레이어 생성
-      - `Player` ⇒ `GameManager` : *CreatePlayer*                   // Player(Prefab) 생성
-      - `Player` ⇒ `Player` : *GetPlayerData*                       // PlayerPrefs에 저장된 Name 값을 Player의 Name 값에 할당
-      - `Player` ⇒ `PlayerUI` : *InitPlayerUI()*                    // Player의 Name 값으로 TMP text 값 초기화
+      - `Player` ⇒ `GameManager` : *CreatePlayer*                   
+        - Player(Prefab) 생성
+      - `Player` ⇒ `Player` : *GetPlayerData*                       
+        - PlayerPrefs에 저장된 Name 값을 Player의 Name 값에 할당
+      - `Player` ⇒ `PlayerUI` : *InitPlayerUI()*                    
+        - Player의 Name 값으로 TMP text 값 초기화
 4. 플레이어 이동
    1. 방향키 클릭 시 1칸씩 이동
-      - `Player` ⇒ `Player` : *GetDirection() : (Enum)Dir*          // 버튼 클릭 시 해당 방향 값을 얻는다.
-      - `Player` ⇒ `Player` : *UpdateDestination((Enum)Dir) : void* // 해당 방향으로 도착지 위치를 변경한다.
-      - `Player` ⇒ `Player` : *UpdatePostion() : void*              // 도착지로 부드럽게 이동한다.
+      - `Player` ⇒ `Player` : *GetDirection() : (Enum)Dir*          
+        - 버튼 클릭 시 해당 방향 값을 얻는다.
+      - `Player` ⇒ `Player` : *UpdateDestination((Enum)Dir) : void* 
+        - 해당 방향으로 도착지 위치를 변경한다.
+      - `Player` ⇒ `Player` : *UpdatePostion() : void*              
+        - 도착지로 부드럽게 이동한다.
 
 
 
