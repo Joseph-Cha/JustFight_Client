@@ -51,10 +51,10 @@
       - `Player` ⇒ `PlayerUI` : *InitPlayerUI()*                    
         - Player의 Name 값으로 TMP text 값 초기화
 4. 플레이어 이동
-   1. 방향키 클릭 시 1칸씩 이동
-      - `Player` ⇒ `Player` : *GetDirection() : (Enum)Dir*          
-        - 버튼 클릭 시 해당 방향 값을 얻는다.
-      - `Player` ⇒ `Player` : *UpdateDestination((Enum)Dir) : void* 
+   1. 방향키 클릭 시 해당 방향키 정보를 Player 객체에 전달
+      - `InputController` ⇒ `Player` : *DirectionInputEventHandler((Enum)InputInfo)*        
+        - 버튼 클릭 시 해당 방향 값을 이벤트를 통해 Player 객체에 전달
+      - `Player` ⇒ `Player` : *UpdateDestination((Enum)InputInfo) : void* 
         - 해당 방향으로 도착지 위치를 변경한다.
       - `Player` ⇒ `Player` : *UpdatePostion() : void*              
         - 도착지로 부드럽게 이동한다.
