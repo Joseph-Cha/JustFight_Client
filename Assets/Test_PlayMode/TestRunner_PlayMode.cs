@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
@@ -15,7 +14,7 @@ namespace Tests
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
         [UnityTest]
-        public IEnumerator TestRunWithEnumeratorPasses()
+        public IEnumerator SceneLoadTest()
         {
             // Arrange
             var obj = new GameObject();
@@ -38,7 +37,7 @@ namespace Tests
             Assert.AreEqual(scene.name, "Main");
         }
 
-        public IEnumerator TestRunner_PlayModeWithEnumeratorPasses()
+        public IEnumerator PlayTimeTest()
         {
             // Arrange
             var obj = new GameObject();
@@ -48,7 +47,7 @@ namespace Tests
             yield return null;
 
             // act 
-            // 
+
             float waitTime = 0.0f;
             do
             {
@@ -59,6 +58,49 @@ namespace Tests
             Debug.Log(gm.remainingTime);
             // assert
             Assert.AreEqual(gm.remainingTime, ts);
+        }
+
+        public IEnumerator PlayerMovementTest()
+        {
+            // arrange
+            var obj = new GameObject();
+            Player player = obj.AddComponent<Player>();
+            InputInfo inputInfo;
+            Vector2Int curPos = player.Position;
+            Vector2Int desPos = new Vector2Int(-1,2);
+
+            yield return null;   
+
+            // act
+            int frameCount = 0;
+            do
+            {
+                if (frameCount < 4)
+                {
+                    inputInfo = InputInfo.Up;
+                    player.UpdateDestination(inputInfo);
+                }
+                else if (frameCount < 5)
+                {
+                    inputInfo = InputInfo.Down;
+                    player.UpdateDestination(inputInfo);
+                }
+                else if (frameCount < 6)
+                {
+                    inputInfo = InputInfo.Right;
+                    player.UpdateDestination(inputInfo);
+                }
+                else if (frameCount < 9)
+                {
+                    inputInfo = InputInfo.Left;
+                    player.UpdateDestination(inputInfo);
+                }
+
+                frameCount++;
+            } while(frameCount <= 10);
+
+            // Assert
+            Assert.AreEqual(desPos, curPos);
         }
 
     }
