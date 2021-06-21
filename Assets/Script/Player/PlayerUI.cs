@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System.ComponentModel;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class PlayerUI : MonoBehaviour
     }
     private void InitPlayerUI()
     {
+
         PlayerNameText.text = Player.name;
     }
+
 
 }
