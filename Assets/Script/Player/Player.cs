@@ -13,10 +13,7 @@ public class Player : MonoBehaviour
         InputDirection.DirectoinInput += UpdateDestination;
         GetPlayerData();
     }
-    private void Update()
-    {
-        
-    }
+
     public void GetPlayerData()
     {
         if(PlayerPrefs.HasKey("Name"))

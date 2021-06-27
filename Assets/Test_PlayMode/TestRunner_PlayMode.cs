@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 using NUnit.Framework;
 using System;
 
+
 namespace Tests
 {
     public class TestRunner_PlayMode
     {
-
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
         [UnityTest]
@@ -67,39 +67,44 @@ namespace Tests
             Player player = obj.AddComponent<Player>();
             InputInfo inputInfo;
             Vector2Int curPos = player.Position;
-            Vector2Int desPos = new Vector2Int(-1,2);
+            Vector2Int desPos = curPos;
 
             yield return null;   
 
             // act
-            int frameCount = 0;
-            do
+            // 10번 동안 랜덤으로 Player의 위치를 이동
+            int count = 0;
+
+            while(count < 10)
             {
-                if (frameCount < 4)
+                int randomInt = UnityEngine.Random.Range(0, 4);
+                inputInfo = (InputInfo)randomInt;
+
+                player.UpdateDestination(inputInfo);
+
+                switch(inputInfo)
                 {
-                    inputInfo = InputInfo.Up;
-                    player.UpdateDestination(inputInfo);
-                }
-                else if (frameCount < 5)
-                {
-                    inputInfo = InputInfo.Down;
-                    player.UpdateDestination(inputInfo);
-                }
-                else if (frameCount < 6)
-                {
-                    inputInfo = InputInfo.Right;
-                    player.UpdateDestination(inputInfo);
-                }
-                else if (frameCount < 9)
-                {
-                    inputInfo = InputInfo.Left;
-                    player.UpdateDestination(inputInfo);
+                    case InputInfo.Up:
+                    desPos += Vector2Int.up;
+                    break;
+                    
+                    case InputInfo.Down:
+                    desPos += Vector2Int.down;
+                    break;
+
+                    case InputInfo.Right:
+                    desPos += Vector2Int.right;
+                    break;
+
+                    case InputInfo.Left:
+                    desPos += Vector2Int.left;
+                    break;
                 }
 
-                frameCount++;
-            } while(frameCount <= 10);
+                count++;
+            }
 
-            // Assert
+            // 10번 동안 랜덤으로 이동한 현재 위치가 저장된 목적지와 같은지 증명
             Assert.AreEqual(desPos, curPos);
         }
 
