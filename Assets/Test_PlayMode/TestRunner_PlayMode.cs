@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
@@ -7,15 +6,15 @@ using UnityEngine.SceneManagement;
 using NUnit.Framework;
 using System;
 
+
 namespace Tests
 {
     public class TestRunner_PlayMode
     {
-
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
         [UnityTest]
-        public IEnumerator TestRunWithEnumeratorPasses()
+        public IEnumerator SceneLoadTest()
         {
             // Arrange
             var obj = new GameObject();
@@ -38,7 +37,7 @@ namespace Tests
             Assert.AreEqual(scene.name, "Main");
         }
 
-        public IEnumerator TestRunner_PlayModeWithEnumeratorPasses()
+        public IEnumerator PlayTimeTest()
         {
             // Arrange
             var obj = new GameObject();
@@ -48,7 +47,7 @@ namespace Tests
             yield return null;
 
             // act 
-            // 
+
             float waitTime = 0.0f;
             do
             {
@@ -59,6 +58,54 @@ namespace Tests
             Debug.Log(gm.remainingTime);
             // assert
             Assert.AreEqual(gm.remainingTime, ts);
+        }
+
+        public IEnumerator PlayerMovementTest()
+        {
+            // arrange
+            var obj = new GameObject();
+            Player player = obj.AddComponent<Player>();
+            InputInfo inputInfo;
+            Vector2Int curPos = player.Position;
+            Vector2Int desPos = curPos;
+
+            yield return null;   
+
+            // act
+            // 10번 동안 랜덤으로 Player의 위치를 이동
+            int count = 0;
+
+            while(count < 10)
+            {
+                int randomInt = UnityEngine.Random.Range(0, 4);
+                inputInfo = (InputInfo)randomInt;
+
+                player.UpdateDestination(inputInfo);
+
+                switch(inputInfo)
+                {
+                    case InputInfo.Up:
+                    desPos += Vector2Int.up;
+                    break;
+                    
+                    case InputInfo.Down:
+                    desPos += Vector2Int.down;
+                    break;
+
+                    case InputInfo.Right:
+                    desPos += Vector2Int.right;
+                    break;
+
+                    case InputInfo.Left:
+                    desPos += Vector2Int.left;
+                    break;
+                }
+
+                count++;
+            }
+
+            // 10번 동안 랜덤으로 이동한 현재 위치가 저장된 목적지와 같은지 증명
+            Assert.AreEqual(desPos, curPos);
         }
 
     }
