@@ -6,6 +6,6 @@ public class StartData : MonoBehaviour
     public TMP_InputField PlayerName;
     public void SavePlayerData()
     {
-        PlayerPrefs.SetString("Name", PlayerName.text);
+        PlayerPrefs.SetString(nameof(Player.playerName), PlayerName.text);
     }
 }

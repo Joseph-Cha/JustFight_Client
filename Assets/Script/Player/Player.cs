@@ -6,8 +6,8 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     public IInputDirection InputDirection;
-    public Vector2Int Position { get; set; }
-    public string Name { get; set; }
+    public Vector2Int CurPosition { get; set; }
+    public string playerName { get; set; }
     private void Awake()
     {
         InputDirection.DirectoinInput += UpdateDestination;
@@ -16,14 +16,15 @@ public class Player : MonoBehaviour
 
     public void GetPlayerData()
     {
-        if(PlayerPrefs.HasKey("Name"))
+        if(PlayerPrefs.HasKey(nameof(Player.playerName)))
         {
-            Name = PlayerPrefs.GetString("Name");
+            playerName = PlayerPrefs.GetString(nameof(Player.playerName));
         }
     }
 
-    public void UpdateDestination(InputInfo inf)
+    public void UpdateDestination(InputInfo info)
     {
+        Vector2Int desPosition = CurPosition;
         UpdatePosition();
     }
 
