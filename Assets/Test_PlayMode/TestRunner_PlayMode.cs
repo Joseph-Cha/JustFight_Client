@@ -66,8 +66,7 @@ namespace Tests
             var obj = new GameObject();
             Player player = obj.AddComponent<Player>();
             InputInfo inputInfo;
-            Vector2Int curPos = player.Position;
-            Vector2Int desPos = curPos;
+            Vector2Int desPos = player.CurPosition;
 
             yield return null;   
 
@@ -105,7 +104,7 @@ namespace Tests
             }
 
             // 10번 동안 랜덤으로 이동한 현재 위치가 저장된 목적지와 같은지 증명
-            Assert.AreEqual(desPos, curPos);
+            Assert.AreEqual(desPos, player.CurPosition);
         }
 
     }
