@@ -3,31 +3,20 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour, IInputDirection
 {
+    private static InputController instance;
+    public static InputController Instance => instance ??= FindObjectOfType<InputController>();
     public event InputDirectionEventHandler DirectoinInput;
-
+    private Event e = new Event();
     // Update is called once per frame
-    void Update()
+    void OnGUI()
     {
-        Event e = Event.current;
-        if (e.isKey)
+        e = Event.current;
+        if (e != null)
         {
-            switch(e.keyCode)
+            if (e.isKey)
             {
-                case KeyCode.RightArrow:
-                DirectoinInput?.Invoke(InputInfo.Right);
-                break;
-
-                case KeyCode.LeftArrow:
-                DirectoinInput?.Invoke(InputInfo.Left);
-                break;
-
-                case KeyCode.DownArrow:
-                DirectoinInput?.Invoke(InputInfo.Down);
-                break;
-
-                case KeyCode.UpArrow:
-                DirectoinInput?.Invoke(InputInfo.Up);
-                break;  
+                Debug.Log($"Input KeyType : {e.keyCode}");
+                DirectoinInput?.Invoke(e.keyCode);
             }
         }
     }

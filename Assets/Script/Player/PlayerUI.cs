@@ -6,18 +6,19 @@ using System.ComponentModel;
 
 public class PlayerUI : MonoBehaviour
 {
-    private Player player;
-    public Player Player => player ??= FindObjectOfType<Player>();
+    public Player Player;
     public TextMeshProUGUI PlayerNameText;
+    public IInputDirection InputController;
+    private void Awake()
+    {
+        Player = new Player();
+    }
     private void Start()
     {
         InitPlayerUI();
     }
     private void InitPlayerUI()
     {
-
-        PlayerNameText.text = Player.name;
+        PlayerNameText.text = Player.playerName;
     }
-
-
 }

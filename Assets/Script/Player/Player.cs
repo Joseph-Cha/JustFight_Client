@@ -1,16 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-public class Player : MonoBehaviour
+﻿using UnityEngine;
+
+public class Player
 {
-    public IInputDirection InputDirection;
     public Vector2Int CurPosition { get; set; }
     public string playerName { get; set; }
-    private void Awake()
+    public Player()
     {
-        InputDirection.DirectoinInput += UpdateDestination;
+        InputController.Instance.DirectoinInput += UpdateDestination;
         GetPlayerData();
     }
 
@@ -22,14 +18,29 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void UpdateDestination(InputInfo info)
+    public void UpdateDestination(KeyCode keyCode)
     {
-        Vector2Int desPosition = CurPosition;
-        UpdatePosition();
+        Vector2Int desPosition = new Vector2Int(0, 0);
+        switch (keyCode)
+        {
+            case KeyCode.UpArrow:
+            desPosition = CurPosition + new Vector2Int(0,1);
+            break;
+            case KeyCode.DownArrow:
+            desPosition = CurPosition + new Vector2Int(0,-1);
+            break;
+            case KeyCode.RightArrow:
+            desPosition = CurPosition + new Vector2Int(1,0);
+            break;
+            case KeyCode.LeftArrow:
+            desPosition = CurPosition + new Vector2Int(-1,0);
+            break;
+        }
+        UpdatePosition(desPosition);
     }
 
-    private void UpdatePosition()
+    private void UpdatePosition(Vector2Int desPosition)
     {
-        
+        CurPosition = desPosition;
     }
 }
