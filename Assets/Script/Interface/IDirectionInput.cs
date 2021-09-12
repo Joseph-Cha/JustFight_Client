@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using MyDelegate;
+using System;
 
 public interface IInputDirection
 {
-    event InputDirectionEventHandler DirectoinInput; 
+    event Action<KeyCode> DirectoinInput; 
 }

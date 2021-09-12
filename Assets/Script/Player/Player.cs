@@ -2,7 +2,7 @@
 
 public class Player
 {
-    public Vector2Int CurPosition { get; set; }
+    public Vector2Int CurrentPos { get; set; }
     public string playerName { get; set; }
     public Player()
     {
@@ -24,16 +24,16 @@ public class Player
         switch (keyCode)
         {
             case KeyCode.UpArrow:
-            desPosition = CurPosition + new Vector2Int(0,1);
+            desPosition = CurrentPos + new Vector2Int(0,1);
             break;
             case KeyCode.DownArrow:
-            desPosition = CurPosition + new Vector2Int(0,-1);
+            desPosition = CurrentPos + new Vector2Int(0,-1);
             break;
             case KeyCode.RightArrow:
-            desPosition = CurPosition + new Vector2Int(1,0);
+            desPosition = CurrentPos + new Vector2Int(1,0);
             break;
             case KeyCode.LeftArrow:
-            desPosition = CurPosition + new Vector2Int(-1,0);
+            desPosition = CurrentPos + new Vector2Int(-1,0);
             break;
         }
         UpdatePosition(desPosition);
@@ -41,6 +41,6 @@ public class Player
 
     private void UpdatePosition(Vector2Int desPosition)
     {
-        CurPosition = desPosition;
+        CurrentPos = desPosition;
     }
 }
