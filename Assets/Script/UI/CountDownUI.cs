@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +9,7 @@ public class CountDownUI : MonoBehaviour
     private void Awake()
     {
         countDownText = GetComponent<TextMeshProUGUI>();
+        GameManager.Instance.CountDown += CountDown;
     }
 
     public void CountDown(TimeSpan remainingTime)

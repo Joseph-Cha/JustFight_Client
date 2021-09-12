@@ -1,32 +1,37 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System;
 using UnityEditor;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     public static GameManager Instance => instance ??= FindObjectOfType<GameManager>();
     public TimeSpan remainingTime { get; set; }
+    public Action<TimeSpan> CountDown;
     private TimeSpan startTime = new TimeSpan(0, 10, 0);
-    private CountDownUI countDownUI;
+    private TimeSpan endTime = new TimeSpan(0, 0, 0);
+    private float interval { get; } = 1f;
 
     private void OnEnable()
     {
         remainingTime = startTime;
-        InvokeRepeating(nameof(GameManager.CountDown), 0, 1);
     }
 
     private void Start()
     {
-        countDownUI = FindObjectOfType<CountDownUI>();
         CreatePlayer();
+        StartCoroutine(CountTime());
     }
 
-    private void CountDown()
+    private IEnumerator CountTime()
     {
-        countDownUI.CountDown(remainingTime);
-        remainingTime -= TimeSpan.FromSeconds(1);
+        while(remainingTime > endTime)
+        {
+            CountDown?.Invoke(remainingTime);
+            remainingTime -= TimeSpan.FromSeconds(interval);
+            yield return new WaitForSeconds(interval);
+        }
     }
 
     private void CreatePlayer()
